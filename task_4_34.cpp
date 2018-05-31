@@ -12,8 +12,8 @@ using namespace std;
 
 int main() {
 
-    bool hasPointsA = false;
-    bool hasPointsB = false;
+    bool hasPointA = false;
+    bool hasPointB = false;
 
     int n, i;
     cin >> n;
@@ -26,27 +26,28 @@ int main() {
     }
 
     i = 0;
-    while (!hasPointsA && i < n) {
-        if (point[i][0] == 4 && point[i][1] != 2) {
-            hasPointsA = true;
+    while (!hasPointA && i < n) {
+        if (point[i][0] != 2 && point[i][1] == 4) {
+            hasPointA = true;
         }
         i++;
     }
 
     i = 0;
-    while (!hasPointsB && i < n) {
+    while (!hasPointB && i < n) {
         if (
+            point[i][0] != 2 &&
             ( 
-                point[i][0] == 2 || point[i][0] == 6
-            ) && point[i][1] != 2
+                point[i][1] == 2 || point[i][1] == 6
+            )
         ) {
-            hasPointsB = true;
+            hasPointB = true;
         }
         i++;
     }
 
-    cout << hasPointsA << endl;
-    cout << hasPointsB << endl;
+    cout << hasPointA << endl;
+    cout << hasPointB << endl;
 
     return 0;
 
